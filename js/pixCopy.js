@@ -15,7 +15,7 @@
     btn.addEventListener("click", function () {
       var payload = cfg.pixCopiaColaPayload;
       var ok = function () {
-        feedback.textContent = "Código copiado. No app: PIX → Chave PIX → colar e confirmar.";
+        feedback.textContent = "Código copiado. No app: PIX → Copia e cola → colar e confirmar.";
       };
       var fail = function () {
         feedback.textContent =
