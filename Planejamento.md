@@ -7,7 +7,7 @@ Site estático para arrecadar contribuições (vaquinha) visando uma nova placa 
 ## 1. Objetivo
 
 - Apresentar de forma clara e honesta o motivo da campanha.
-- Facilitar a doação via **PIX** usando a chave: `140.736.359.05`.
+- Facilitar a doação via **PIX** com **QR Code** na página e botão que **copia o Copia e cola**.
 - Transmitir confiança (transparência, meta opcional, agradecimento).
 - Manter o site **leve**, **rápido** e **acessível** em celular e desktop.
 
@@ -38,12 +38,10 @@ Evite prometer recompensas que não possa cumprir; vaquinha informal costuma ser
 
 ---
 
-## 4. Chave PIX (doação)
+## 4. PIX (doação)
 
-**Chave PIX:** `140.736.359.05`
-
-- Inclua no site exatamente essa chave, com aviso para conferir antes de confirmar no app do banco.
-- **Fonte única no código:** chave e Copia e cola ficam em `js/config.js` no objeto **`window.siteConfig`**. O botão do site usa só o **link** `pix://` gerado a partir do Copia e cola. Ao trocar, edite esse arquivo e a **`Documentação.md`**.
+- O visitante doa por **QR Code** (`assets/pix-qrcode.png`) ou pelo botão **Doar Copia e Cola**, que copia o **BR Code** para a área de transferência.
+- **Fonte única do código:** string **`pixCopiaColaPayload`** em `js/config.js` (`window.siteConfig`). O QR deve ser gerado com o **mesmo** código. Ao trocar, atualize o arquivo, substitua o PNG e a **`Documentação.md`**.
 
 ---
 
@@ -53,7 +51,7 @@ Evite prometer recompensas que não possa cumprir; vaquinha informal costuma ser
 
 | Abordagem | O que o visitante faz | Viável no Pages? |
 |-----------|------------------------|------------------|
-| **Chave PIX + copiar** (atual) | Abre o app do banco e cola a chave | Sim |
+| **Chave PIX + copiar** (atual) | Escaneia o QR ou copia o Copia e cola no app | Sim |
 | **QR Code PIX estático** | Você gera um BR Code (valor fixo ou “aberto”) e coloca uma imagem na página; escaneia no banco | Sim (imagem gerada fora do site) |
 | **Botão “doar” que abre app/link** | Redireciona para link `pix` ou página de gateway | Sim |
 | **Checkout completo no domínio** (cartão, boleto, PIX com confirmação automática) | Precisa de **provedor** (Mercado Pago, Stripe com PIX, PagBank, etc.) com **API/backend** ou widget hospedado pelo provedor | Parcial: use **widget/script oficial** do provedor ou link externo; o processamento não roda “no GitHub”, e sim no serviço de pagamento |

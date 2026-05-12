@@ -52,25 +52,39 @@
         <h2 id="titulo-historia">Por que estou fazendo esta vaquinha</h2>
         <p>
           Uso o computador para estudo, trabalho e lazer, e uma placa de vídeo melhor faz diferença
-          no dia a dia. Qualquer ajuda conta — não tem valor mínimo.
+          no dia a dia. Qualquer ajuda conta, não tem valor mínimo nem máximo.
         </p>
       </article>
 
       <section id="doacao-pix" class="card pix-card" aria-labelledby="titulo-pix">
-        <h2 id="titulo-pix">Doação via PIX</h2>
-        <p id="pix-instrucoes">
-          Toque no botão para tentar abrir o pagamento no app do banco. Se o link não abrir, use no
-          app <strong>PIX → Copia e cola</strong> com o mesmo código configurado no site.
+        <h2 id="titulo-pix" class="pix-card__title">Doação via PIX</h2>
+        <p id="pix-instrucoes" class="pix-card__intro">
+          Escaneie o QR Code com o app do banco ou toque no botão para <strong>copiar a chave PIX 
+          </strong> e colar em <strong>PIX → Chave PIX</strong>. Confira valor e destinatário
+          antes de confirmar.
         </p>
+        <figure class="pix-qr">
+          <img
+            class="pix-qr__image"
+            src="assets/pix-qrcode.png"
+            alt="QR Code PIX para doação na vaquinha"
+            width="280"
+            height="280"
+            decoding="async"
+            loading="lazy"
+          />
+        </figure>
         <p class="pix-card__action">
-          <a
-            id="pix-link"
+          <button
+            type="button"
+            id="pix-copiar-btn"
             class="btn-pix btn-pix--primary btn-pix--solo"
-            href="#"
-            rel="noopener noreferrer"
             aria-describedby="pix-instrucoes"
-          >Doar com PIX</a>
+          >
+            Doar Copia e Cola
+          </button>
         </p>
+        <p id="pix-feedback" class="pix-feedback" role="status" aria-live="polite"></p>
       </section>
     </main>
 
