@@ -2,7 +2,7 @@
 
 Este repositório contém um site **estático** pensado para ser **leve**, **rápido** e **semântico**, ideal para **GitHub Pages**. Regras de código e de pastas estão no **`Planejamento.md`** (§ 9, em especial **9.0** — só o básico, sem banco de dados).
 
-**Última revisão da documentação:** QR + botão **Doar Copia e Cola** (clipboard), `pixCopiaColaPayload` em `js/config.js`, `assets/pix-qrcode.png`, hero em `assets/marketing-hero.png`.
+**Última revisão da documentação:** QR + botão **Copiar chave PIX** (clipboard), `pixKey` em `js/config.js`, `assets/pix-qrcode.png`, hero em `assets/marketing-hero.png`.
 
 **Regra de escopo:** só o **básico** — site **estático** no GitHub Pages (HTML, CSS, JS, imagens). **Sem** banco de dados, **sem** backend que grave dados ou login. Listas, meta ou textos você **atualiza à mão** no HTML ou no `config.js`. Detalhes no **`Planejamento.md` → § 9.0**.
 
@@ -25,11 +25,11 @@ Site-Vaquinha/
 ├── css/
 │   └── styles.css             # Estilos globais + hero
 ├── js/
-│   ├── config.js              # `window.siteConfig.pixCopiaColaPayload` (Copia e cola)
-│   └── pixCopy.js             # Botão que copia o payload para a área de transferência
+│   ├── config.js              # `window.siteConfig.pixKey` (chave PIX, ex.: CPF)
+│   └── pixCopy.js             # Botão que copia a chave para a área de transferência
 ├── assets/
 │   ├── marketing-hero.png     # Banner (hero)
-│   └── pix-qrcode.png         # QR Code estático (mesmo BR Code do config)
+│   └── pix-qrcode.png         # QR Code estático (mesma conta que a chave em `pixKey`)
 ├── Planejamento.md
 ├── Tutorial-Hospedagem-GitHub.md
 ├── Documentação.md
@@ -44,7 +44,7 @@ Site-Vaquinha/
 2. Prefira PNG/WebP otimizado (largura típica 1024–1600 px) para carregar rápido no celular.
 3. Ajuste o **`alt`** no HTML se o conteúdo visual mudar (acessibilidade e SEO).
 
-**QR Code PIX:** **`assets/pix-qrcode.png`** — deve corresponder ao mesmo **`pixCopiaColaPayload`** do `config.js`.
+**QR Code PIX:** **`assets/pix-qrcode.png`** — deve ser do **mesmo recebedor** que a chave em **`pixKey`** no `config.js` (ao trocar chave ou QR, mantenha os dois alinhados).
 
 ---
 
@@ -55,7 +55,7 @@ Site-Vaquinha/
 - **`<header class="site-header">`** — cabeçalho da página: faixa com **`<figure>`** (arte) e bloco **`.site-header__inner`** com **`<h1>`** (único título principal) e parágrafos introdutórios.
 - **`<main id="conteudo-principal">`** — conteúdo principal.
 - **`<article id="historia-campanha">`** — texto autossuficiente da campanha; **`<h2 id="titulo-historia">`**; **`aria-labelledby`** liga região ao título.
-- **`<section id="doacao-pix">`** — **`<h2 class="pix-card__title">`**; **`<p class="pix-card__intro" id="pix-instrucoes">`**; **`<figure class="pix-qr">`** com **`assets/pix-qrcode.png`**; **`<button type="button" id="pix-copiar-btn">`** **Doar Copia e Cola** (`aria-describedby`); **`<p id="pix-feedback" role="status" aria-live="polite">`**.
+- **`<section id="doacao-pix">`** — **`<h2 class="pix-card__title">`**; **`<p class="pix-card__intro" id="pix-instrucoes">`**; **`<figure class="pix-qr">`** com **`assets/pix-qrcode.png`**; **`<button type="button" id="pix-copiar-btn">`** **Copiar chave PIX** (`aria-describedby`); **`<p id="pix-feedback" role="status" aria-live="polite">`**.
 - **`<footer>`** — rodapé; agradecimento em **`<small>`** (tom secundário sem perder significado).
 - **`application/ld+json`** — `WebPage` no `<head>` (dados estruturados para buscadores, complementar ao HTML).
 
@@ -73,8 +73,8 @@ Site-Vaquinha/
 
 | Arquivo | Função |
 |---------|--------|
-| `js/config.js` | Define **`window.siteConfig.pixCopiaColaPayload`** (string BR Code Copia e cola). |
-| `js/pixCopy.js` | Ao clicar em **`#pix-copiar-btn`**, copia o payload com **`navigator.clipboard`** e escreve feedback em **`#pix-feedback`**. |
+| `js/config.js` | Define **`window.siteConfig.pixKey`** (string da chave PIX: CPF, e-mail, telefone ou EVP). |
+| `js/pixCopy.js` | Ao clicar em **`#pix-copiar-btn`**, copia **`pixKey`** com **`navigator.clipboard`** e escreve feedback em **`#pix-feedback`**. |
 
 - No `index.html`, **`config.js` deve vir antes de `pixCopy.js`**, ambos com **`defer`**.
 - **Sem `type="module"`** — funciona em `file://` e no GitHub Pages.
@@ -82,7 +82,7 @@ Site-Vaquinha/
 
 ### Convenções (alinhadas ao planejamento)
 
-- **camelCase:** funções e variáveis no JS (ex.: `payload`, `ok`, `fail`).
+- **camelCase:** funções e variáveis no JS (ex.: `chave`, `ok`, `fail`).
 - **PascalCase:** reservado para classes quando o projeto voltar a usar módulos ou componentes.
 - **HTML/CSS:** classes em **kebab-case** (ex.: `hero__image`, `btn-pix`).
 
@@ -90,7 +90,7 @@ Site-Vaquinha/
 
 ## 7. Pagamento na própria página
 
-O site **não processa** pagamento no servidor. O fluxo é **QR estático** + botão que **copia o Copia e cola** (`pixCopiaColaPayload` em `js/config.js`). O visitante cola no app do banco em **PIX → Copia e cola**.
+O site **não processa** pagamento no servidor. O fluxo é **QR estático** + botão que **copia a chave PIX** (`pixKey` em `js/config.js`). O visitante usa no app em **PIX → Chave PIX** (ou equivalente do banco).
 
 ---
 
@@ -111,7 +111,7 @@ Siga **`Tutorial-Hospedagem-GitHub.md`**. O site deve manter **`index.html`** na
 
 ## 10. Manutenção e documentação
 
-- Alterou o **Copia e cola** ou o **QR** → edite `pixCopiaColaPayload` em `js/config.js` e substitua **`assets/pix-qrcode.png`** pelo QR gerado com o **mesmo** código.
+- Alterou a **chave PIX** ou o **QR** → edite `pixKey` em `js/config.js` e substitua **`assets/pix-qrcode.png`** por um QR que aponte para a **mesma** conta/chave.
 - Alterou **pastas, scripts ou dependências** → atualize **este arquivo** (`Documentação.md`).
 - Alterou **regras de produto ou texto institucional** → atualize o **`Planejamento.md`** quando fizer sentido.
 
@@ -128,7 +128,7 @@ git push
 ## 11. Privacidade e segurança
 
 - Não commite tokens de API de gateways de pagamento em repositório público.
-- O código PIX fica em `js/config.js` (`pixCopiaColaPayload`); não commite dados além do necessário para a vaquinha.
+- A chave PIX fica em `js/config.js` (`pixKey`); não commite dados além do necessário para a vaquinha.
 
 ---
 

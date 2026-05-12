@@ -1,6 +1,5 @@
 /** Configuração pública (carregada antes de pixCopy.js). */
 window.siteConfig = {
-  /** Código PIX Copia e cola (mesmo conteúdo do QR Code). */
-  pixCopiaColaPayload:
-    "14073635905",
+  /** Chave PIX (CPF). É o texto copiado pelo botão “Copiar chave PIX”. */
+  pixKey: "14073635905",
 };

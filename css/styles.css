@@ -291,8 +291,13 @@ body {
   border-top: 1px solid transparent;
 }
 
-.pix-card .pix-feedback:not(:empty) {
+.pix-card .pix-feedback:not(:empty),
+.pix-card .pix-feedback.pix-feedback--visible {
   border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.pix-card .pix-feedback.pix-feedback--visible {
+  min-height: 2.75rem;
 }
 
 button.btn-pix {
