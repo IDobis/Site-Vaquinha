@@ -8,7 +8,7 @@
       content="Vaquinha para uma nova placa de vídeo. Doações via PIX."
     />
     <title>Vaquinha — Nova placa de vídeo</title>
-    <link rel="stylesheet" href="css/styles.css?v=4" />
+    <link rel="stylesheet" href="css/styles.css?v=5" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,6 +48,35 @@
     </header>
 
     <main id="conteudo-principal">
+      <section
+        id="progresso-campanha"
+        class="card progress-card"
+        aria-labelledby="titulo-progresso"
+      >
+        <h2 id="titulo-progresso">Progresso da vaquinha</h2>
+        <p class="progress-card__values" id="progresso-valores"></p>
+        <div class="progress-bar-wrap" role="group" aria-labelledby="titulo-progresso">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-valuetext="0%"
+            id="progresso-barra"
+          >
+            <div class="progress-bar__fill" id="progresso-preenchimento"></div>
+          </div>
+          <span class="progress-bar__pct" id="progresso-porcentagem" aria-hidden="true">0%</span>
+        </div>
+      </section>
+
+      <section id="doadores" class="card donors-card" aria-labelledby="titulo-doadores">
+        <h2 id="titulo-doadores">Quem ajudou</h2>
+        <ul class="donors-list" id="lista-doadores" hidden></ul>
+        <p class="donors-empty" id="doadores-vazio">Nenhum nome cadastrado ainda — você pode ir adicionando no config.</p>
+      </section>
+
       <article id="historia-campanha" class="card" aria-labelledby="titulo-historia">
         <h2 id="titulo-historia">Por que estou fazendo esta vaquinha</h2>
         <p>
@@ -93,7 +122,8 @@
       <p><small>Obrigado a quem puder ajudar.</small></p>
     </footer>
 
-    <script src="js/config.js?v=4" defer></script>
-    <script src="js/pixCopy.js?v=4" defer></script>
+    <script src="js/config.js?v=5" defer></script>
+    <script src="js/campaign.js?v=5" defer></script>
+    <script src="js/pixCopy.js?v=5" defer></script>
   </body>
 </html>
