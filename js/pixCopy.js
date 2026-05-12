@@ -9,7 +9,7 @@
   function getChave() {
     var cfg = window.siteConfig;
     if (!cfg) return "";
-    return String(cfg.pixKey || cfg.pixCopiaColaPayload || "").trim();
+    return String(cfg.pixKey || "").trim();
   }
 
   function copyViaExecCommand(text) {
@@ -57,9 +57,7 @@
   function init() {
     var chave = getChave();
     if (!chave) {
-      console.error(
-        "Site-Vaquinha: defina window.siteConfig.pixKey (ou pixCopiaColaPayload) em js/config.js."
-      );
+      console.error("Site-Vaquinha: defina window.siteConfig.pixKey em js/config.js.");
       return;
     }
 

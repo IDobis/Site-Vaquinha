@@ -105,7 +105,7 @@ Por padrão o projeto **não** usa framework. Se adicionar um dos permitidos no 
 Siga **`Tutorial-Hospedagem-GitHub.md`**. O site deve manter **`index.html`** na raiz do branch publicado (Pages em `/ (root)`).
 
 - Na raiz existe **`.nojekyll`** (arquivo vazio): desliga o **Jekyll** no GitHub Pages para o site ser servido **só como HTML/CSS/JS estáticos** (evita o Pages “processar” arquivos e quebrar ou mudar o visual).
-- O CSS é referenciado com **`?v=…`** no `index.html` para forçar **atualização em cache** do navegador após mudanças grandes de estilo (aumente o número quando publicar novo visual).
+- O **CSS** e os **scripts** (`config.js`, `pixCopy.js`) são referenciados com **`?v=…`** no `index.html` para forçar **atualização em cache** após mudanças de estilo ou de lógica (aumente o número ao publicar alterações relevantes).
 
 ---
 

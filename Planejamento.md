@@ -51,7 +51,7 @@ Evite prometer recompensas que não possa cumprir; vaquinha informal costuma ser
 
 | Abordagem | O que o visitante faz | Viável no Pages? |
 |-----------|------------------------|------------------|
-| **Chave PIX + copiar** (atual) | Escaneia o QR ou cola a chave PIX no app | Sim |
+| **Chave PIX + copiar** (atual) | Escaneia o QR ou insere a chave PIX no app | Sim |
 | **QR Code PIX estático** | Você gera um BR Code (valor fixo ou “aberto”) e coloca uma imagem na página; escaneia no banco | Sim (imagem gerada fora do site) |
 | **Botão “doar” que abre app/link** | Redireciona para link `pix` ou página de gateway | Sim |
 | **Checkout completo no domínio** (cartão, boleto, PIX com confirmação automática) | Precisa de **provedor** (Mercado Pago, Stripe com PIX, PagBank, etc.) com **API/backend** ou widget hospedado pelo provedor | Parcial: use **widget/script oficial** do provedor ou link externo; o processamento não roda “no GitHub”, e sim no serviço de pagamento |
