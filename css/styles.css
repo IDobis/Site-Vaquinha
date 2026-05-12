@@ -1,0 +1,234 @@
+/* Vaquinha site — estilos mínimos, mobile-first */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f1419;
+  --surface: #1a222c;
+  --text: #e8eef4;
+  --muted: #9aa8b6;
+  --accent: #3d9cf5;
+  --accent-hover: #67b4f8;
+  --neon-pink: #e93dcd;
+  --neon-cyan: #41e0ff;
+  --radius: 12px;
+  --space: 1rem;
+  --max-readable: 38rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  font-family: system-ui, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(120% 80% at 50% -10%, #1e2a3a 0%, var(--bg) 55%);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 1000;
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+  color: #0a0e12;
+  background: var(--accent);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.site-header__banner {
+  width: 100%;
+  margin: 0 0 var(--space);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--surface);
+}
+
+.site-header__inner {
+  padding: calc(var(--space) * 2) var(--space);
+  max-width: var(--max-readable);
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Hero / marketing — assets/marketing-hero.png */
+.hero__figure {
+  margin: 0;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  max-height: min(42vh, 380px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.site-header h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.2;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+#conteudo-principal {
+  padding: 0 var(--space) calc(var(--space) * 2);
+  max-width: var(--max-readable);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: calc(var(--space) * 1.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0 0 0.65rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.pix-card {
+  position: relative;
+  border: 1px solid rgba(233, 61, 205, 0.4);
+  background: var(--surface);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(65, 224, 255, 0.15);
+}
+
+.btn-pix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.btn-pix:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.btn-pix:active {
+  transform: scale(0.98);
+}
+
+.btn-pix--primary {
+  color: #0a0e12;
+  border-color: rgba(65, 224, 255, 0.65);
+  background: linear-gradient(135deg, #9cf0ff 0%, var(--accent) 55%, #c94bb8 130%);
+  box-shadow:
+    0 0 20px rgba(65, 224, 255, 0.28),
+    0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.btn-pix--primary:hover {
+  border-color: var(--neon-cyan);
+  box-shadow:
+    0 0 28px rgba(65, 224, 255, 0.38),
+    0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.btn-pix--solo {
+  width: 100%;
+  max-width: 22rem;
+  justify-content: center;
+}
+
+.pix-card__action {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: calc(var(--space) * 2) var(--space);
+  max-width: var(--max-readable);
+  margin-inline: auto;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-footer small {
+  font-size: inherit;
+  color: inherit;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (min-width: 40rem) {
+  .site-header__inner,
+  .site-footer,
+  #conteudo-principal {
+    padding-inline: calc(var(--space) * 1.5);
+  }
+}
